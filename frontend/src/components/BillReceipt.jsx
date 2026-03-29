@@ -17,9 +17,9 @@ const BillReceipt = React.forwardRef(({ bill }, ref) => {
       {/* Header */}
       <Box sx={{ textAlign: 'center', mb: 1.5 }}>
         <Typography fontWeight={900} fontSize={18} letterSpacing={3} fontFamily="monospace">
-          D-MART
+          RENIC
         </Typography>
-        <Typography fontSize={10} color="text.secondary">Avenue Supermarts Ltd.</Typography>
+        <Typography fontSize={10} color="text.secondary">Renic Departmental Store</Typography>
         <Typography fontSize={10} color="text.secondary">Bengaluru, Karnataka - 560001</Typography>
         <Typography fontSize={10} color="text.secondary">GSTIN: 29AABCA1234F1Z5</Typography>
         <Typography fontSize={10} color="text.secondary">Ph: 1800-123-4567</Typography>
@@ -139,7 +139,7 @@ const BillReceipt = React.forwardRef(({ bill }, ref) => {
           YOU SAVED ₹{Number(bill.totalDiscount).toFixed(2)} TODAY!
         </Typography>
         <Typography fontSize={10} color="text.secondary" fontFamily="monospace" mt={1}>
-          Thank you for shopping at D-MART
+          Thank you for shopping at RENIC
         </Typography>
         <Typography fontSize={10} color="text.secondary" fontFamily="monospace">
           Visit us again!

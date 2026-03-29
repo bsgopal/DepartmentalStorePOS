@@ -1,0 +1,6 @@
+desktop/node_modules/
+desktop/dist/
+frontend/build_electron/
+frontend/build_tmp/
+frontend/build_tmp2/
+frontend/build_tmp3/

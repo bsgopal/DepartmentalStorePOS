@@ -13,6 +13,12 @@ const customerRoutes = require('./routes/customer.routes');
 const dashboardRoutes = require('./routes/dashboard.routes');
 const { errorHandler } = require('./middleware/errorHandler');
 const staffRoutes = require('./routes/staff.routes');
+const stockRoutes   = require('./routes/stock.routes');
+const returnsRoutes = require('./routes/returns.routes');
+const gstRoutes     = require('./routes/gst.routes');
+const supplierRoutes = require('./routes/supplier.routes');
+const purchaseRoutes = require('./routes/purchase.routes');
+const shiftRoutes = require('./routes/shift.routes');
 
 const app = express();
 
@@ -29,7 +35,12 @@ app.use('/api/bills', billRoutes);
 app.use('/api/customers', customerRoutes);
 app.use('/api/dashboard', dashboardRoutes);
 app.use('/api/staff', staffRoutes);
-
+app.use('/api/stock',   stockRoutes);
+app.use('/api/returns', returnsRoutes);
+app.use('/api/gst',     gstRoutes);
+app.use('/api/suppliers', supplierRoutes);
+app.use('/api/purchases', purchaseRoutes);
+app.use('/api/shifts', shiftRoutes);
 app.get('/api/health', (req, res) => res.json({ status: 'OK', message: 'DMart POS API Running' }));
 
 // Error handler

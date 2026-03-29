@@ -1,0 +1,47 @@
+{
+  "name": "renic-pos-desktop",
+  "version": "1.0.0",
+  "private": true,
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build:frontend": "set BUILD_PATH=build_electron&& npm --prefix ../frontend run build",
+    "dist": "npm run build:frontend && electron-builder --win nsis",
+    "dist:portable": "npm run build:frontend && electron-builder --win portable"
+  },
+  "devDependencies": {
+    "electron": "^31.7.6",
+    "electron-builder": "^24.13.3"
+  },
+  "build": {
+    "appId": "com.renic.pos",
+    "productName": "Renic POS",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "package.json"
+    ],
+    "extraResources": [
+      {
+        "from": "../backend",
+        "to": "backend"
+      },
+      {
+        "from": "../frontend/build_electron",
+        "to": "frontend-build"
+      }
+    ],
+    "win": {
+      "target": [
+        "nsis"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}

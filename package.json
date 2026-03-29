@@ -1,0 +1,13 @@
+{
+  "name": "renic-pos-monorepo",
+  "private": true,
+  "scripts": {
+    "install:all": "npm --prefix backend install && npm --prefix frontend install && npm --prefix desktop install",
+    "start:backend": "npm --prefix backend run dev",
+    "start:frontend": "npm --prefix frontend start",
+    "start:desktop": "npm --prefix desktop start",
+    "build:frontend": "npm --prefix frontend run build",
+    "dist:exe": "npm --prefix desktop run dist",
+    "dist:portable": "npm --prefix desktop run dist:portable"
+  }
+}

@@ -8,10 +8,14 @@ import {
   PointOfSaleRounded, DashboardRounded, Inventory2Rounded,
   ReceiptLongRounded, PeopleRounded, LogoutRounded, MenuRounded,
   StorefrontRounded, CategoryRounded, AccessTimeRounded,
+  LocalShippingRounded,
+  ShoppingCartRounded,
+  ScheduleRounded,
 } from '@mui/icons-material';
 import { useNavigate, useLocation, Outlet } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { BadgeRounded } from '@mui/icons-material';
+import {  AssignmentReturnRounded, AccountBalanceRounded } from '@mui/icons-material';
 
 const DRAWER_WIDTH = 220;
 
@@ -23,6 +27,12 @@ const navItems = [
   { label: 'Bills History', icon: ReceiptLongRounded, path: '/bills', roles: ['admin', 'cashier', 'manager'] },
   { label: 'Customers', icon: PeopleRounded, path: '/customers', roles: ['admin', 'manager'] },
   { label: 'Staff', icon: BadgeRounded, path: '/staff', roles: ['admin', 'manager'] },
+  { label: 'Stock', icon: Inventory2Rounded, path: '/stock', roles: ['admin', 'manager'] },
+  { label: 'Suppliers', icon: LocalShippingRounded, path: '/suppliers', roles: ['admin', 'manager'] },
+  { label: 'Purchases', icon: ShoppingCartRounded, path: '/purchases', roles: ['admin', 'manager'] },
+  { label: 'Shifts', icon: ScheduleRounded, path: '/shifts', roles: ['admin', 'manager', 'cashier'] },
+  { label: 'Returns', icon: AssignmentReturnRounded, path: '/returns', roles: ['admin', 'manager', 'cashier'] },
+  { label: 'GST Report', icon: AccountBalanceRounded, path: '/gst-report', roles: ['admin', 'manager'] },
 ];
 
 export default function AppLayout() {

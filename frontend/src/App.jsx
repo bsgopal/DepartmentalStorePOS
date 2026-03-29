@@ -15,6 +15,14 @@ import BillsPage from './pages/BillsPage';
 import CustomersPage from './pages/CustomersPage';
 import { CircularProgress, Box } from '@mui/material';
 import StaffPage from './pages/StaffPage';
+import StockPage from './pages/StockPage';
+import ReturnsPage from './pages/ReturnsPage';
+import GSTReportPage from './pages/GSTReportPage';
+import SuppliersPage from './pages/SuppliersPage';
+import PurchasesPage from './pages/PurchasesPage';
+import ShiftsPage from './pages/ShiftsPage';
+
+
 
 const PrivateRoute = ({ children, adminOnly = false }) => {
   const { user, loading } = useAuth();
@@ -51,6 +59,12 @@ function AppRoutes() {
         <Route path="staff" element={<PrivateRoute adminOnly><StaffPage /></PrivateRoute>} />
         <Route path="bills" element={<BillsPage />} />
         <Route path="customers" element={<PrivateRoute adminOnly><CustomersPage /></PrivateRoute>} />
+        <Route path="stock" element={<PrivateRoute adminOnly><StockPage /></PrivateRoute>} />
+        <Route path="suppliers" element={<PrivateRoute adminOnly><SuppliersPage /></PrivateRoute>} />
+        <Route path="purchases" element={<PrivateRoute adminOnly><PurchasesPage /></PrivateRoute>} />
+        <Route path="shifts" element={<PrivateRoute><ShiftsPage /></PrivateRoute>} />
+        <Route path="returns" element={<PrivateRoute><ReturnsPage /></PrivateRoute>} />
+        <Route path="gst-report" element={<PrivateRoute adminOnly><GSTReportPage /></PrivateRoute>} />
       </Route>
       <Route path="*" element={<Navigate to="/billing" replace />} />
     </Routes>

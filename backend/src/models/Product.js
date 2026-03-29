@@ -6,6 +6,8 @@ const productSchema = new mongoose.Schema(
     name: { type: String, required: true, trim: true },
     brand: { type: String, trim: true },
     category: { type: mongoose.Schema.Types.ObjectId, ref: 'Category', required: true },
+    supplier: { type: mongoose.Schema.Types.ObjectId, ref: 'Supplier' },
+    purchasePrice: { type: Number, default: 0, min: 0 },
     mrp: { type: Number, required: true, min: 0 },
     sellingPrice: { type: Number, required: true, min: 0 },
     unit: { type: String, default: 'pcs', enum: ['pcs', 'kg', 'g', 'L', 'ml', 'pack'] },

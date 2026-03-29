@@ -6,7 +6,7 @@ const { protect } = require('../middleware/auth');
 
 // POST /api/bills - create bill
 router.post('/', protect, async (req, res) => {
-  const { items, paymentMethod, amountPaid, customerPhone, customerName } = req.body;
+  const { items, paymentMethod, amountPaid, splitPayments, customerPhone, customerName } = req.body;
 
   if (!items || items.length === 0)
     return res.status(400).json({ success: false, message: 'No items in bill' });
@@ -80,6 +80,7 @@ router.post('/', protect, async (req, res) => {
     paymentMethod,
     amountPaid,
     changeReturned,
+    splitPayments: Array.isArray(splitPayments) ? splitPayments : undefined,
     counter: req.user.counter || '1',
   });
 

@@ -31,11 +31,17 @@ const billSchema = new mongoose.Schema(
     totalAmount: { type: Number, required: true },
     paymentMethod: {
       type: String,
-      enum: ['cash', 'card', 'upi', 'wallet'],
+      enum: ['cash', 'card', 'upi', 'wallet', 'split'],
       required: true,
     },
     amountPaid: Number,
     changeReturned: Number,
+    splitPayments: [
+      {
+        method: { type: String, enum: ['cash', 'card', 'upi', 'wallet'] },
+        amount: { type: Number, min: 0 },
+      },
+    ],
     status: { type: String, enum: ['completed', 'cancelled', 'refunded'], default: 'completed' },
     counter: { type: String, default: '1' },
     storeId: { type: String, default: 'DMART-BLR-001' },
